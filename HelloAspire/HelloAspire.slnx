@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="HelloAspire.ApiService/HelloAspire.ApiService.csproj" />
+  <Project Path="HelloAspire.AppHost/HelloAspire.AppHost.csproj" />
+  <Project Path="HelloAspire.ServiceDefaults/HelloAspire.ServiceDefaults.csproj" />
+  <Project Path="HelloAspire.Tests/HelloAspire.Tests.csproj" />
+  <Project Path="HelloAspire.Web/HelloAspire.Web.csproj" />
+</Solution>
