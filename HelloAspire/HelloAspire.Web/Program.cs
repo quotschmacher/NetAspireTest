@@ -19,6 +19,10 @@ builder.Services.AddHttpClient<WeatherApiClient>(client =>
         client.BaseAddress = new("https+http://apiservice");
     });
 
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("/workspaces/AspireTest/.keys"))
+    .SetApplicationName("HelloAspire");
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
