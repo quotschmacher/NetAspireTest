@@ -1,5 +1,6 @@
 using HelloAspire.Web;
 using HelloAspire.Web.Components;
+using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 
