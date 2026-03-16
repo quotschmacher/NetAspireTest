@@ -11,6 +11,11 @@
   <ItemGroup>
     <ProjectReference Include="..\HelloAspire.ApiService\HelloAspire.ApiService.csproj" />
     <ProjectReference Include="..\HelloAspire.Web\HelloAspire.Web.csproj" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HelloAspire.NotesService\NotesService.csproj" />
   </ItemGroup>
 
 </Project>

@@ -23,3 +23,26 @@
 - alternative 2
   - got to "HelloAspire/HelloAspire.AppHost/AppHost.cs"
   - hit F5
+
+## Add a new Project (API)
+
+- `dotnet new webapi --name NotesService --output HelloAspire.NotesService`
+- `dotnet sln add "./HelloAspire.NotesService/NotesService.csproj"`
+- `cd HelloAspire.AppHost`
+- `dotnet add reference ../HelloAspire.NotesService/NotesService.csproj`
+- `cd ../HelloAspire.NotesService`
+- `dotnet add references ..\HelloAspire.ServiceDefaults\HelloAspire.ServiceDefaults.csproj`
+- then you can add `var notesService = builder.AddProject<Projects.NotesService>("notesServcice");` to the AppHosts.cs  
+  - if the NotesService does not appear:
+    - Press CTRL+Shift+P
+    - `Developer: Reload Window`
+
+## Work with a Database
+dotnet tool
+- Install EFCore-Tools
+  - `dotnet new tool-manifest`
+  - `dotnet tool install --global dotnet-ef`
+  - `dotnet tool restore`
+- Migration erstellen
+  - `cd HelloAspire.NotesService` in entsprechendes Projekt wechseln
+  - `dotnet ef migrations add Create_Database -o Data/Migrations`
