@@ -24,6 +24,19 @@
   - got to "HelloAspire/HelloAspire.AppHost/AppHost.cs"
   - hit F5
 
+## Fehler bei PostgresDB `password authentication failed for user "postgres"`
+
+```bash
+docker ps -a
+docker volume ls
+docker rm -f <postgres-container>
+docker volume rm <postgres-volume>
+```
+
+## Delete buildartifacts
+
+- `find . -type d \( -name bin -o -name obj \) -exec rm -rf {} +`
+
 ## Add a new Project (API)
 
 - `dotnet new webapi --name NotesService --output HelloAspire.NotesService`
@@ -46,3 +59,23 @@ dotnet tool
 - Migration erstellen
   - `cd HelloAspire.NotesService` in entsprechendes Projekt wechseln
   - `dotnet ef migrations add Create_Database -o Data/Migrations`
+
+## #5 Add authentification
+
+- guideline: https://www.youtube.com/watch?v=HAvCoQ0tOTs
+- go to porject folder
+  - `aspire add keycloak`
+- go to consuming project
+  - `dotnet add package Aspire.Keycloak.Authentication --version 13.1.3-preview.1.26166.8`
+- realm "notes" is imported at start
+  - create user
+    - name:
+      - `test@test.com`
+    - passwod:
+      - `123`
+
+### Test with bruno
+
+- run Keycloak - Get JWT with Username and Password
+  - token is stored as a variable
+- run Notes Api - Get All Notes

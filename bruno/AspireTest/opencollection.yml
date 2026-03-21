@@ -2,6 +2,24 @@ opencollection: 1.0.0
 
 info:
   name: AspireTest
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  scripts:
+    - type: before-request
+      code: |-
+        const token = bru.getVar("token");
+        req.setHeader("Authorization", `Bearer ${token}`);
 bundled: false
 extensions:
   bruno:

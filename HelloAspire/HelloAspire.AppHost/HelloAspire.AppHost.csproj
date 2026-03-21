@@ -1,4 +1,4 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.1.2">
+<Project Sdk="Aspire.AppHost.Sdk/13.1.3">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Keycloak" />
     <ProjectReference Include="..\HelloAspire.ApiService\HelloAspire.ApiService.csproj" />
     <ProjectReference Include="..\HelloAspire.Web\HelloAspire.Web.csproj" />
     <PackageReference Include="Aspire.Hosting.PostgreSQL" />
