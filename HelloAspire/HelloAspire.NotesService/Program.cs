@@ -26,6 +26,8 @@ if (app.Environment.IsDevelopment())
     using var scope = app.Services.CreateScope();
     var dbContext = scope.ServiceProvider.GetRequiredService<NotesDbContext>();
     dbContext.Database.Migrate();
+
+    await SeedTestData.SeedData(dbContext);
 }
 
 app.UseHttpsRedirection();
