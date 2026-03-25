@@ -44,6 +44,11 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 
+    app.UseSwaggerUi(options =>
+    {
+        options.DocumentPath = "/openapi/v1.json";
+    });
+
     // Apply EF migrations
     using var scope = app.Services.CreateScope();
     var dbContext = scope.ServiceProvider.GetRequiredService<NotesDbContext>();
