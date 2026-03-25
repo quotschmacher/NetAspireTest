@@ -35,6 +35,8 @@ builder.Services.AddAuthentication()
         };
     });
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
@@ -65,5 +67,7 @@ app.MapGet("notes", GetNotesEndpoint.GetAllNotes).RequireAuthorization();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();

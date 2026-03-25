@@ -50,6 +50,22 @@ docker volume rm <postgres-volume>
     - Press CTRL+Shift+P
     - `Developer: Reload Window`
 
+### Scaffold new Controller
+
+- https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-10.0&tabs=visual-studio-code#scaffold-a-controller
+```bash
+cd api-project
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet tool uninstall -g dotnet-aspnet-codegenerator # might throw error, if not installed previously
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet tool update -g dotnet-aspnet-codegenerator
+dotnet-aspnet-codegenerator controller --help # show parameters
+dotnet-aspnet-codegenerator controller -name UserController -async -api -outDir Controllers
+```
+
 ## Work with a Database
 dotnet tool
 - Install EFCore-Tools
